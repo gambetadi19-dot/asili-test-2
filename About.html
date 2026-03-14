@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>Asili Partners | About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styles.css">
+  <style>
+    /* About page refinements to match home/services aesthetic */
+    :root {
+      --primary-deep: #002b48;
+      --accent-bright: #f47b20;
+    }
+
+    /* About Hero - enhanced with better visual hierarchy */
+    .about-hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0,63,107,0.03) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .about-grid {
+      position: relative;
+      z-index: 2;
+      gap: 4rem;
+    }
+
+    .about-copy h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      color: var(--primary-deep);
+      margin: 1.5rem 0 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .about-copy .lead {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #475467;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    /* Feature cards - refined to match service cards */
+    .feature-list {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,63,107,0.08);
+      border-radius: 24px;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .feature-card:hover {
+      background: white;
+      border-color: rgba(244,123,32,0.25);
+      transform: translateX(8px);
+      box-shadow: 0 20px 35px -15px rgba(0,43,80,0.15);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 12px 20px -8px rgba(0,63,107,0.25);
+      flex-shrink: 0;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 0.5rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: #667085;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Founder card - premium styling */
+    .founder-card {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px -20px rgba(0,43,80,0.25);
+      border: 1px solid rgba(0,63,107,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .founder-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .founder-media {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+    }
+
+    .founder-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .founder-card:hover .founder-media img {
+      transform: scale(1.05);
+    }
+
+    .media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,43,80,0.4) 100%);
+      pointer-events: none;
+    }
+
+    .founder-content {
+      padding: 2rem;
+    }
+
+    .founder-label {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(0,63,107,0.08);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0,63,107,0.06);
+    }
+
+    .founder-content .quote {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #1e2f3f;
+      font-style: italic;
+      margin: 0 0 1.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 4px solid var(--accent-bright);
+    }
+
+    .founder-meta {
+      margin-bottom: 1.5rem;
+    }
+
+    .founder-meta strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .founder-meta span {
+      color: #667085;
+      font-size: 0.9rem;
+    }
+
+    /* Quote toggle - enhanced */
+    .quote-toggle {
+      background: transparent;
+      border: 2px solid rgba(244,123,32,0.3);
+      color: var(--accent-bright);
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .quote-toggle:hover {
+      background: var(--accent-bright);
+      border-color: var(--accent-bright);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px -10px rgba(244,123,32,0.4);
+    }
+
+    .quote-toggle::after {
+      content: '↓';
+      font-size: 1.2rem;
+      transition: transform 0.25s ease;
+    }
+
+    .quote-toggle[aria-expanded="true"]::after {
+      transform: rotate(180deg);
+    }
+
+    .quote-reveal {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      margin-top: 0;
+      background: rgba(0,63,107,0.02);
+      border-radius: 20px;
+    }
+
+    .quote-reveal.open {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 1.5rem;
+      padding: 1.2rem;
+    }
+
+    .quote-reveal p {
+      margin: 0;
+      color: #475467;
+      line-height: 1.7;
+    }
+
+    /* Values section - enhanced */
+    .values-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .values-section::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,63,107,0.1), transparent);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-head h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--primary-deep);
+      margin: 1rem 0 0.5rem;
+      line-height: 1.1;
+    }
+
+    .section-head p {
+      color: #667085;
+      font-size: 1.1rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .value-card {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 28px;
+      border: 1px solid rgba(0,63,107,0.08);
+      box-shadow: 0 20px 35px -15px rgba(0,43,80,0.1);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(244,123,32,0.25);
+      box-shadow: 0 25px 45px -15px rgba(244,123,32,0.15);
+    }
+
+    .value-card h3 {
+      color: var(--primary);
+      margin: 0 0 0.8rem;
+      font-size: 1.2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .value-card h3::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent-bright));
+      border-radius: 2px;
+    }
+
+    .value-card p {
+      margin: 1rem 0 0;
+      color: #667085;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 1100px) {
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        padding: 100px 0 60px;
+      }
+
+      .about-grid {
+        gap: 2rem;
+      }
+
+      .about-copy h2 {
+        font-size: 2rem;
+      }
+
+      .about-copy .lead {
+        font-size: 1rem;
+      }
+
+      .feature-card {
+        padding: 1.2rem;
+      }
+
+      .feature-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
+      }
+
+      .founder-media {
+        height: 220px;
+      }
+
+      .founder-content {
+        padding: 1.5rem;
+      }
+
+      .founder-content .quote {
+        font-size: 1rem;
+        padding-left: 1rem;
+      }
+
+      .values-section {
+        padding: 70px 0;
+      }
+
+      .section-head h2 {
+        font-size: 2rem;
+      }
+
+      .value-card {
+        padding: 1.5rem 1rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="images/asili-logo.png" alt="Asili Partners Logo" class="logo">
+        <div class="brand-copy">
+          <h1>Asili Partners</h1>
+          <span>Investment CC</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html" class="active">About</a>
+        <a href="Services.html">Services</a>
+        <a href="Pricing.html">Pricing</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="Contact.html">Get Started</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="About.html" class="active">About</a>
+      <a href="Services.html">Services</a>
+      <a href="Pricing.html">Pricing</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Contact.html" class="btn btn-primary" style="justify-content:center; color:#fff;">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="about-hero" id="about">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <span class="eyebrow">About Asili Partners</span>
+          <h2>Driven by vision, built for long-term business impact.</h2>
+          <p class="lead">
+            Asili Partners Investment CC is a solutions-driven company helping entrepreneurs and organizations with strategic business support, operational readiness, brand development, agri-business facilitation and sustainable energy opportunities.
+          </p>
+
+          <div class="feature-list">
+            <article class="feature-card reveal">
+              <div class="feature-icon">01</div>
+              <div>
+                <h3>Professional business support</h3>
+                <p>Structured assistance from registration to compliance and operational readiness.</p>
+              </div>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon">02</div>
+              <div>
+                <h3>Multi-sector experience</h3>
+                <p>Supporting businesses across agriculture, energy, consultancy and marketing.</p>
+              </div>
+            </article>
+
+            <article class="feature-card reveal">
+              <div class="feature-icon">03</div>
+              <div>
+                <h3>Growth-focused strategy</h3>
+                <p>Helping clients build lasting systems, stronger brands and sustainable progress.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <aside class="founder-card reveal">
+          <div class="founder-media">
+            <img src="images/business lady.jpg" alt="Victory Wilka April, founder of Asili Partners Investment CC">
+            <div class="media-overlay"></div>
+          </div>
+
+          <div class="founder-content">
+            <span class="founder-label">Founder Spotlight</span>
+            <p class="quote">
+              "I am dedicated to building businesses that generate generational wealth and remain prominent and relevant across multiple generations."
+            </p>
+
+            <div class="founder-meta">
+              <strong>Victory Wilka April</strong>
+              <span>Founder, Asili Partners Investment CC</span>
+            </div>
+
+            <button class="quote-toggle" id="quoteToggle" type="button" aria-expanded="false" aria-controls="quoteReveal">
+              Reveal founder message
+            </button>
+
+            <div class="quote-reveal" id="quoteReveal">
+              <p>
+                At Asili Partners, we believe strong businesses are built with clarity, consistency and a long-term vision that creates real value for future generations. Our approach combines practical expertise with a deep commitment to our clients' success, ensuring that every partnership delivers lasting impact.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="values-section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Why Choose Us</span>
+          <h2>A modern partner for professional business support</h2>
+          <p>Trust, clarity and action built into everything we do.</p>
+        </div>
+
+        <div class="values-grid">
+          <article class="value-card reveal">
+            <h3>Professional Guidance</h3>
+            <p>Practical and structured advisory services that reduce confusion and move businesses forward.</p>
+          </article>
+
+          <article class="value-card reveal">
+            <h3>Multi-Sector Reach</h3>
+            <p>From agri-business to energy and marketing, we support businesses across multiple sectors.</p>
+          </article>
+
+          <article class="value-card reveal">
+            <h3>Clear Service Offers</h3>
+            <p>Visible services and clear positioning make it easy for clients to understand the value we bring.</p>
+          </article>
+
+          <article class="value-card reveal">
+            <h3>Sustainable Thinking</h3>
+            <p>Every action points toward longevity, relevance and meaningful long-term growth.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <strong style="color: var(--primary);">Asili Partners Investment CC</strong>
+        <span style="display: block; color: #667085; margin-top: 0.3rem;">Building sustainable solutions for long-term growth.</span>
+      </div>
+      <span>© <span id="year"></span> Asili Partners. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const founderMedia = document.querySelector('.founder-media');
+      if (founderMedia) {
+        window.addEventListener('scroll', function() {
+          const scroll = window.pageYOffset;
+          const rate = scroll * 0.3;
+          const img = founderMedia.querySelector('img');
+          if (img && scroll < 600) {
+            img.style.transform = `translateY(${rate * 0.1}px) scale(1.05)`;
+          }
+        });
+      }
+
+      const featureCards = document.querySelectorAll('.feature-card');
+      featureCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
+      });
+    });
+  </script>
+</body>
+</html>

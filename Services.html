@@ -1,0 +1,99 @@
+<!-- Services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>Asili Partners – Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="images/asili-logo.png" alt="Asili Partners Logo" class="logo">
+        <div class="brand-copy">
+          <h1>Asili Partners</h1>
+          <span>Investment CC</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Services.html" class="active">Services</a>
+        <a href="Pricing.html">Pricing</a>
+        <a href="Contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="Contact.html">Get Started</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open mobile menu">
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Services.html">Services</a>
+      <a href="Pricing.html">Pricing</a>
+      <a href="Contact.html">Contact</a>
+      <a href="Contact.html" class="btn btn-primary" style="justify-content:center; color:#fff;">Get Started</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========== SERVICES SECTION (full) ========== -->
+    <section class="section services-wrap" id="services" style="padding-top:92px;">
+      <div class="container">
+        <div class="section-head-row reveal">
+          <div>
+            <span class="eyebrow">Our Core Services</span>
+            <h2 class="section-title">Solutions tailored for businesses that want clarity and growth</h2>
+            <p class="section-subtitle">
+              Explore Asili Partners’ main service areas. Click the filters to highlight service groups.
+            </p>
+          </div>
+        </div>
+
+        <div class="filter-chips reveal">
+          <button class="chip active" data-filter="all">All Services</button>
+          <button class="chip" data-filter="advisory">Advisory</button>
+          <button class="chip" data-filter="agri">Agri-Business</button>
+          <button class="chip" data-filter="energy">Energy</button>
+          <button class="chip" data-filter="marketing">Marketing</button>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal" data-category="advisory"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 7H16M8 11H16M8 15H13M6 3H18C19.1 3 20 3.9 20 5V19C20 20.1 19.1 21 18 21H6C4.9 21 4 20.1 4 19V5C4 3.9 4.9 3 6 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Advisory & Consultancy</h3><p>Professional advisory and administrative support to help businesses become compliant, ready and well-structured.</p><a class="service-link" href="Pricing.html">View Packages →</a></article>
+          <article class="service-card reveal" data-category="advisory"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 7H20M7 3V11M17 3V11M6 21H18C19.1 21 20 20.1 20 19V7H4V19C4 20.1 4.9 21 6 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Business Registration</h3><p>Name reservation, BIPA processes, tax registration, social security and supporting documents in one service path.</p><a class="service-link" href="Pricing.html">See Pricing →</a></article>
+          <article class="service-card reveal" data-category="agri"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 17C7 13 10 10 14 10C16.2 10 18.2 10.9 19.6 12.4M7 17C7 19.2 8.8 21 11 21C15.4 21 19 17.4 19 13V4C13.5 4 9 8.5 9 14V17H7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Agri-Business</h3><p>Facilitating agricultural initiatives, supporting productivity and improving access to relevant products and opportunities.</p><a class="service-link" href="Contact.html">Enquire Now →</a></article>
+          <article class="service-card reveal" data-category="energy"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14H11L10 22L20 9H13L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Energy Solutions</h3><p>Providing support around sustainable energy initiatives, equipment supply and energy-focused projects.</p><a class="service-link" href="Contact.html">Talk to Us →</a></article>
+          <article class="service-card reveal" data-category="marketing"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 19H20M6 16L10 12L13 14L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Marketing & Brand Strategy</h3><p>Helping businesses build brand presence, strong communication and effective market positioning.</p><a class="service-link" href="Contact.html">Start Project →</a></article>
+          <article class="service-card reveal" data-category="marketing"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M7 10V6C7 4.9 7.9 4 9 4H15C16.1 4 17 4.9 17 6V10M5 20H19C20.1 20 21 19.1 21 18V12C21 10.9 20.1 10 19 10H5C3.9 10 3 10.9 3 12V18C3 19.1 3.9 20 5 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Corporate Events</h3><p>Coordination and hosting support for workshops, launches, conferences and professional business events.</p><a class="service-link" href="Contact.html">Book Consultation →</a></article>
+          <article class="service-card reveal" data-category="advisory"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8V12L15 15M22 12C22 17.5 17.5 22 12 22C6.5 22 2 17.5 2 12C2 6.5 6.5 2 12 2C17.5 2 22 6.5 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Permanent Secretarial Services</h3><p>Monthly compliance support for businesses that need ongoing administrative and regulatory assistance.</p><a class="service-link" href="Pricing.html">Monthly Support →</a></article>
+          <article class="service-card reveal" data-category="advisory"><div class="icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3L4 7V11C4 16 7.4 20.7 12 22C16.6 20.7 20 16 20 11V7L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Fitness Certificate Support</h3><p>Assistance with obtaining a City of Windhoek Fitness Certificate for businesses operating from specific premises.</p><a class="service-link" href="Pricing.html">See Offer →</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        <strong style="color: var(--primary);">Asili Partners Investment CC</strong><br>
+        <span>Building sustainable solutions for long-term growth.</span>
+      </div>
+      <div>© <span id="year"></span> Asili Partners. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
